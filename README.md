@@ -180,6 +180,363 @@ RibaFarms addresses these challenges through a comprehensive digital platform th
 
 ---
 
+## Project Structure
+```
+
+ribafarms/
+├── README.md
+├── package.json
+├── .gitignore
+├── .env.example
+├── next.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── 
+├── docs/
+│   ├── API_DOCUMENTATION.md
+│   ├── DEPLOYMENT_GUIDE.md
+│   ├── FEATURE_SPECIFICATIONS.md
+│   └── DEVELOPMENT_ROADMAP.md
+│
+├── public/
+│   ├── icons/
+│   │   ├── favicon.ico
+│   │   ├── apple-touch-icon.png
+│   │   └── manifest.json
+│   ├── images/
+│   │   ├── logo/
+│   │   ├── crops/
+│   │   ├── ui/
+│   │   └── demo/
+│   └── sounds/
+│       ├── achievement.mp3
+│       ├── notification.mp3
+│       └── level-up.mp3
+│
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── globals.css
+│   │   ├── 
+│   │   ├── auth/
+│   │   │   ├── login/
+│   │   │   │   └── page.tsx
+│   │   │   ├── register/
+│   │   │   │   └── page.tsx
+│   │   │   └── onboarding/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── dashboard/
+│   │   │   ├── page.tsx
+│   │   │   ├── profile/
+│   │   │   │   └── page.tsx
+│   │   │   ├── analytics/
+│   │   │   │   └── page.tsx
+│   │   │   └── achievements/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── marketplace/
+│   │   │   ├── page.tsx
+│   │   │   ├── product/
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   ├── list-product/
+│   │   │   │   └── page.tsx
+│   │   │   └── orders/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── learning/
+│   │   │   ├── page.tsx
+│   │   │   ├── modules/
+│   │   │   │   └── [moduleId]/
+│   │   │   │       └── page.tsx
+│   │   │   ├── quizzes/
+│   │   │   │   └── [quizId]/
+│   │   │   │       └── page.tsx
+│   │   │   └── progress/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── banking/
+│   │   │   ├── page.tsx
+│   │   │   ├── loans/
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── apply/
+│   │   │   │       └── page.tsx
+│   │   │   ├── insurance/
+│   │   │   │   └── page.tsx
+│   │   │   └── transactions/
+│   │   │       └── page.tsx
+│   │   │
+│   │   ├── community/
+│   │   │   ├── page.tsx
+│   │   │   ├── forums/
+│   │   │   │   └── [forumId]/
+│   │   │   │       └── page.tsx
+│   │   │   ├── mentorship/
+│   │   │   │   └── page.tsx
+│   │   │   └── leaderboard/
+│   │   │       └── page.tsx
+│   │   │
+│   │   └── api/
+│   │       ├── auth/
+│   │       │   ├── login/
+│   │       │   │   └── route.ts
+│   │       │   ├── register/
+│   │       │   │   └── route.ts
+│   │       │   └── refresh/
+│   │       │       └── route.ts
+│   │       │
+│   │       ├── users/
+│   │       │   ├── profile/
+│   │       │   │   └── route.ts
+│   │       │   ├── achievements/
+│   │       │   │   └── route.ts
+│   │       │   └── progress/
+│   │       │       └── route.ts
+│   │       │
+│   │       ├── ai/
+│   │       │   ├── crop-recommendations/
+│   │       │   │   └── route.ts
+│   │       │   ├── market-analysis/
+│   │       │   │   └── route.ts
+│   │       │   └── chat/
+│   │       │       └── route.ts
+│   │       │
+│   │       ├── marketplace/
+│   │       │   ├── products/
+│   │       │   │   └── route.ts
+│   │       │   ├── orders/
+│   │       │   │   └── route.ts
+│   │       │   └── search/
+│   │       │       └── route.ts
+│   │       │
+│   │       ├── banking/
+│   │       │   ├── loans/
+│   │       │   │   └── route.ts
+│   │       │   ├── payments/
+│   │       │   │   └── route.ts
+│   │       │   └── transactions/
+│   │       │       └── route.ts
+│   │       │
+│   │       ├── gamification/
+│   │       │   ├── points/
+│   │       │   │   └── route.ts
+│   │       │   ├── badges/
+│   │       │   │   └── route.ts
+│   │       │   └── challenges/
+│   │       │       └── route.ts
+│   │       │
+│   │       └── webhooks/
+│   │           ├── stripe/
+│   │           │   └── route.ts
+│   │           └── notifications/
+│   │               └── route.ts
+│   │
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── Button.tsx
+│   │   │   ├── Input.tsx
+│   │   │   ├── Modal.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── Badge.tsx
+│   │   │   ├── ProgressBar.tsx
+│   │   │   └── LoadingSpinner.tsx
+│   │   │
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── MobileMenu.tsx
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── LoginForm.tsx
+│   │   │   ├── RegisterForm.tsx
+│   │   │   └── OnboardingWizard.tsx
+│   │   │
+│   │   ├── gamification/
+│   │   │   ├── ProgressTracker.tsx
+│   │   │   ├── AchievementBadge.tsx
+│   │   │   ├── Leaderboard.tsx
+│   │   │   ├── PointsDisplay.tsx
+│   │   │   └── LevelIndicator.tsx
+│   │   │
+│   │   ├── marketplace/
+│   │   │   ├── ProductCard.tsx
+│   │   │   ├── ProductGrid.tsx
+│   │   │   ├── SearchFilters.tsx
+│   │   │   ├── ProductUpload.tsx
+│   │   │   └── OrderTracker.tsx
+│   │   │
+│   │   ├── learning/
+│   │   │   ├── ModuleCard.tsx
+│   │   │   ├── Quiz.tsx
+│   │   │   ├── ProgressChart.tsx
+│   │   │   └── CertificateDisplay.tsx
+│   │   │
+│   │   ├── banking/
+│   │   │   ├── LoanApplication.tsx
+│   │   │   ├── PaymentForm.tsx
+│   │   │   ├── TransactionHistory.tsx
+│   │   │   └── WalletBalance.tsx
+│   │   │
+│   │   ├── ai/
+│   │   │   ├── ChatInterface.tsx
+│   │   │   ├── CropRecommendations.tsx
+│   │   │   ├── WeatherWidget.tsx
+│   │   │   └── MarketInsights.tsx
+│   │   │
+│   │   └── community/
+│   │       ├── ForumPost.tsx
+│   │       ├── CommentSection.tsx
+│   │       ├── UserProfile.tsx
+│   │       └── MentorshipCard.tsx
+│   │
+│   ├── lib/
+│   │   ├── auth.ts
+│   │   ├── database.ts
+│   │   ├── validators.ts
+│   │   ├── utils.ts
+│   │   ├── constants.ts
+│   │   ├── 
+│   │   ├── ai/
+│   │   │   ├── claude.ts
+│   │   │   ├── openai.ts
+│   │   │   ├── gemini.ts
+│   │   │   └── recommendations.ts
+│   │   │
+│   │   ├── payments/
+│   │   │   ├── stripe.ts
+│   │   │   ├── paystack.ts
+│   │   │   └── flutterwave.ts
+│   │   │
+│   │   ├── storage/
+│   │   │   ├── aws-s3.ts
+│   │   │   └── image-upload.ts
+│   │   │
+│   │   ├── notifications/
+│   │   │   ├── push.ts
+│   │   │   ├── email.ts
+│   │   │   └── sms.ts
+│   │   │
+│   │   └── apis/
+│   │       ├── weather.ts
+│   │       ├── geolocation.ts
+│   │       └── market-data.ts
+│   │
+│   ├── types/
+│   │   ├── user.ts
+│   │   ├── product.ts
+│   │   ├── order.ts
+│   │   ├── gamification.ts
+│   │   ├── banking.ts
+│   │   ├── learning.ts
+│   │   └── api.ts
+│   │
+│   ├── hooks/
+│   │   ├── useAuth.ts
+│   │   ├── useGamification.ts
+│   │   ├── useMarketplace.ts
+│   │   ├── useBanking.ts
+│   │   ├── useLearning.ts
+│   │   └── useNotifications.ts
+│   │
+│   ├── store/
+│   │   ├── authStore.ts
+│   │   ├── userStore.ts
+│   │   ├── marketplaceStore.ts
+│   │   ├── gamificationStore.ts
+│   │   └── notificationStore.ts
+│   │
+│   └── styles/
+│       ├── globals.css
+│       ├── components.css
+│       └── animations.css
+│
+├── mobile/
+│   ├── public/
+│   │   └── manifest.json
+│   ├── service-worker.js
+│   └── pwa-config.js
+│
+├── database/
+│   ├── migrations/
+│   │   ├── 001_initial_schema.sql
+│   │   ├── 002_gamification_tables.sql
+│   │   ├── 003_marketplace_tables.sql
+│   │   ├── 004_banking_tables.sql
+│   │   └── 005_community_tables.sql
+│   │
+│   ├── seeds/
+│   │   ├── users.sql
+│   │   ├── crops.sql
+│   │   ├── achievements.sql
+│   │   └── learning_modules.sql
+│   │
+│   └── schema/
+│       ├── users.sql
+│       ├── products.sql
+│       ├── gamification.sql
+│       ├── banking.sql
+│       └── community.sql
+│
+├── tests/
+│   ├── __mocks__/
+│   ├── unit/
+│   │   ├── components/
+│   │   ├── utils/
+│   │   └── api/
+│   │
+│   ├── integration/
+│   │   ├── auth.test.ts
+│   │   ├── marketplace.test.ts
+│   │   ├── banking.test.ts
+│   │   └── gamification.test.ts
+│   │
+│   ├── e2e/
+│   │   ├── user-journey.test.ts
+│   │   ├── marketplace-flow.test.ts
+│   │   └── mobile.test.ts
+│   │
+│   └── setup/
+│       ├── jest.config.js
+│       ├── test-utils.tsx
+│       └── mock-data.ts
+│
+├── deployment/
+│   ├── docker/
+│   │   ├── Dockerfile
+│   │   ├── docker-compose.yml
+│   │   └── nginx.conf
+│   │
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   └── ingress.yaml
+│   │
+│   └── scripts/
+│       ├── deploy.sh
+│       ├── backup.sh
+│       └── migrate.sh
+│
+└── tools/
+    ├── scripts/
+    │   ├── generate-component.js
+    │   ├── db-backup.js
+    │   └── data-migration.js
+    │
+    ├── monitoring/
+    │   ├── health-check.js
+    │   ├── performance.js
+    │   └── error-tracking.js
+    │
+    └── analytics/
+        ├── user-tracking.js
+        ├── conversion-metrics.js
+        └── performance-metrics.js
+
+```
+
 ## Installation
 
 ### Prerequisites
