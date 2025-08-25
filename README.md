@@ -181,6 +181,8 @@ RibaFarms addresses these challenges through a comprehensive digital platform th
 ---
 
 ## Project Structure
+```
+
 ribafarms/
 ├── README.md
 ├── package.json
@@ -532,6 +534,8 @@ ribafarms/
         ├── user-tracking.js
         ├── conversion-metrics.js
         └── performance-metrics.js
+
+```
 
 ## Installation
 
