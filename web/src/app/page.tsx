@@ -1,4 +1,5 @@
 import { Sprout, Users, TrendingUp, Award, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,9 +13,11 @@ export default function Home() {
           <span className="text-2xl font-bold text-green-800">RibaFarms</span>
         </div>
         <div className="flex gap-4">
-          <button className="px-4 py-2 text-green-700 hover:text-green-800 transition-colors">
-            Sign In
-          </button>
+          <Link href="/auth/login">
+            <span className="px-4 py-2 text-green-700 hover:text-green-800 transition-colors cursor-pointer">
+              Log In
+            </span>
+          </Link>
           <button className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
             Get Started
           </button>
