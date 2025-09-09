@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Sprout, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,15 +25,20 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-white">
+          {/* Navbar at the very top */}
+          <Navbar currentPage="login" />
+
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-8 relative overflow-hidden">
       {/* Background Image - Right Side */}
       <div className="absolute right-4 top-4 bottom-4 w-1/2 z-0">
         <img 
           src="/assets/farmer2.jpg" 
           alt="Farmer illustration" 
-          className="w-full h-full object-cover opacity-60 rounded-3xl shadow-lg"
+          className="w-full h-full object-cover opacity-100 rounded-3xl shadow-lg"
         />
       </div>
+      
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-6xl flex items-center">
@@ -173,5 +179,6 @@ export default function LoginPage() {
 
       </div>
     </div>
+     </div>
   );
 }
