@@ -1,60 +1,64 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import * as zod from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import { useForm, Controller } from "react-hook-form";
+import * as zod from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
 
 const authSchema = zod
-    .object({
-        fullname: zod.string().min(2, {message: 'Full name is required'}),
-        email: zod.string().email({ message: 'Invalid email address '}),
-        password: zod
-            .string()
-            .min(8, { message: 'Password must be at least 8 characters long '}),
-        confirmPassword: zod
-            .string()
-            .min(8, { message: 'Confirm your password'}),
-    })
-    .refine(
-        (data) => data.password === data.confirmPassword, {
-            message: "Passwords don't match",
-            path: ['confirmPassword'],
-    });
+  .object({
+    fullname: zod.string().min(2, { message: "Full name is required" }),
+    email: zod.string().email({ message: "Invalid email address " }),
+    password: zod
+      .string()
+      .min(8, { message: "Password must be at least 8 characters long " }),
+    confirmPassword: zod.string().min(8, { message: "Confirm your password" }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
 
-export default function Authentication(){
-    const router = useRouter();
-    const { control, handleSubmit, formState } = useForm({
-        resolver: zodResolver(authSchema),
-        defaultValues: {
-            fullname: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-        },
-    });
+export default function Authentication() {
+  const router = useRouter();
+  const { control, handleSubmit, formState } = useForm({
+    resolver: zodResolver(authSchema),
+    defaultValues: {
+      fullname: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
 
-    const signUp = (data: zod.infer<typeof authSchema>) => {
-        console.log(data);
-    };
+  const signUp = (data: zod.infer<typeof authSchema>) => {
+    console.log(data);
+  };
 
-    return (
+  return (
     <ScrollView contentContainerStyle={styles.container}>
-
-      <Text style={styles.subtitle}>Are you a returning farmer?{" "}
-        <Text
-            style={styles.signInText}
-            onPress={() => router.push("/signin")}
-        >
-            Sign In
+      <Text style={styles.subtitle}>
+        Are you a returning farmer?{" "}
+        <Text style={styles.signInText} onPress={() => router.push("/signin")}>
+          Sign In
         </Text>
       </Text>
       <Text style={styles.title}>Welcome</Text>
-      
-      {/* Full Name */}
+
+      {/* full name */}
       <Controller
         control={control}
         name="fullname"
-        render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
+        render={({
+          field: { value, onChange, onBlur },
+          fieldState: { error },
+        }) => (
           <>
             <TextInput
               style={[styles.input, error && styles.inputError]}
@@ -70,11 +74,14 @@ export default function Authentication(){
         )}
       />
 
-      {/* Email */}
+      {/* email */}
       <Controller
         control={control}
         name="email"
-        render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
+        render={({
+          field: { value, onChange, onBlur },
+          fieldState: { error },
+        }) => (
           <>
             <TextInput
               style={[styles.input, error && styles.inputError]}
@@ -91,11 +98,14 @@ export default function Authentication(){
         )}
       />
 
-      {/* Password */}
+      {/* password */}
       <Controller
         control={control}
         name="password"
-        render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
+        render={({
+          field: { value, onChange, onBlur },
+          fieldState: { error },
+        }) => (
           <>
             <TextInput
               style={[styles.input, error && styles.inputError]}
@@ -112,11 +122,14 @@ export default function Authentication(){
         )}
       />
 
-      {/* Confirm Password */}
+      {/* confirm password */}
       <Controller
         control={control}
         name="confirmPassword"
-        render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
+        render={({
+          field: { value, onChange, onBlur },
+          fieldState: { error },
+        }) => (
           <>
             <TextInput
               style={[styles.input, error && styles.inputError]}
@@ -133,13 +146,25 @@ export default function Authentication(){
         )}
       />
 
-      {/* Sign Up Button */}
+      {/* sign up button */}
       <TouchableOpacity
         style={[styles.button, formState.isSubmitting && styles.buttonDisabled]}
         onPress={handleSubmit(signUp)}
         disabled={formState.isSubmitting}
       >
         <Text style={styles.buttonText}>Sign Up</Text>
+      </TouchableOpacity>
+
+      {/* OR separator between buttons */}
+      <View style={styles.separator}>
+        <View style={styles.line} />
+        <Text style={styles.separatorText}>OR</Text>
+        <View style={styles.line} />
+      </View>
+
+      {/* sign up with google button*/}
+      <TouchableOpacity style={styles.googleButton}>
+        <Text style={styles.googleButtonText}>Sign in with Google</Text>
       </TouchableOpacity>
     </ScrollView>
   );
@@ -149,55 +174,83 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 24,
-    justifyContent: 'center',
-    backgroundColor: '#fff',
+    justifyContent: "center",
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 6,
-    textAlign: 'center',
+    textAlign: "center",
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: "#666",
     marginBottom: 8,
-    textAlign: 'center',
+    textAlign: "center",
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 10,
     padding: 14,
     marginBottom: 12,
     fontSize: 16,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: "#f9f9f9",
   },
   inputError: {
-    borderColor: 'red',
+    borderColor: "red",
   },
   errorText: {
-    color: 'red',
+    color: "red",
     marginBottom: 8,
     fontSize: 12,
   },
   button: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: "#4CAF50",
     padding: 16,
     borderRadius: 12,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 12,
   },
   buttonDisabled: {
-    backgroundColor: '#9CCC9C',
+    backgroundColor: "#9CCC9C",
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 16,
   },
   signInText: {
-    color: "#4CAF50", 
+    color: "#4CAF50",
+    fontWeight: "bold",
+  },
+  googleButton: {
+    padding: 16,
+    alignItems: "center",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#000",
+    marginTop: 5,
+  },
+  googleButtonText: {
+    color: "#000",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  separator: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 16,
+  },
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: "#ccc",
+  },
+  separatorText: {
+    marginHorizontal: 8,
+    color: "#666",
     fontWeight: "bold",
   },
 });

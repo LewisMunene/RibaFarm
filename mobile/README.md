@@ -16,7 +16,7 @@ npm i
 ```
 3. Navigate to the project folder and run
 ```
-npm start
+npx expo start
 ```
 4. To test the application directly on your mobile phone, install the Expo Go app from Play Store or App Store
 5. From the Expo Go app, scan the QR code and the application loads on your mobile phone
