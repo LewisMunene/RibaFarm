@@ -23,7 +23,7 @@ export default function ContactFormSection() {
     // Handle form submission here
     console.log('Form submitted:', formData);
     // You can add your form submission logic here
-    alert('Thank you for your message! We\'ll get back to you soon.');
+    alert('Thank you for your message! We will get back to you soon.');
     setFormData({ fullName: '', email: '', message: '' });
   };
 
@@ -39,7 +39,7 @@ export default function ContactFormSection() {
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full"></div>
           </div>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have questions about RibaFarms? We're here to help! Reach out to us and let's grow together.
+            Have questions about RibaFarms? We are here to help! Reach out to us and let us grow together.
           </p>
         </div>
 
@@ -54,8 +54,7 @@ export default function ContactFormSection() {
                 alt="Fresh produce at market"
                 className="w-full h-[500px] object-cover"
               />
-              {/* Overlay with RibaFarms logo */}
-              
+             
             </div>
 
             {/* Contact Info Cards */}
@@ -175,10 +174,10 @@ export default function ContactFormSection() {
         <div className="mt-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-12 text-white text-center">
           <div className="max-w-3xl mx-auto">
             <h3 className="text-3xl font-bold mb-6">
-              Ready to Transform Agriculture Together? 🌱
+              Ready to Transform Agriculture Together?
             </h3>
             <p className="text-xl text-green-100 mb-8">
-              Whether you're a farmer looking to connect with buyers, an investor interested in AgTech, or someone passionate about sustainable agriculture - we'd love to hear from you!
+              Whether you are a farmer looking to connect with buyers, an investor interested in AgTech, or someone passionate about sustainable agriculture - we would love to hear from you!
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-green-100">
               <div className="flex items-center gap-2">
