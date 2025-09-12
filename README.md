@@ -1,4 +1,5 @@
-# RibaFarms 🌱
+# RibaFarms ![WhatsApp Image 2025-09-05 at 13 28 09_9b18ac6d](https://github.com/user-attachments/assets/3288413d-5506-4166-9811-df83a058d7a6)
+
 ## The World's First Gamified Agricultural Marketplace Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
