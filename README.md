@@ -1,7 +1,8 @@
 
 <div style="display: flex; align-items: center; gap: 10px;">
   # RibaFarms
-<img src="https://user-content.gribafarms/assets/3288413d-5506-4166-9811-df83a058d7a6" alt="RibaFarms Logo" width="50" height="50">
+<img src="![WhatsApp Image 2025-09-05 at 13 28 09_fb5d070c](https://github.com/user-attachments/assets/6402b9c4-7884-49b7-878f-ad41680c11f8)
+" alt="RibaFarms Logo" width="50" height="50">
 </div>
 
 
